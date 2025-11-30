@@ -8,6 +8,8 @@ al crear archivos o proyectos nuevos se debe hacer ciertos pasos para poder  sub
 6 - git push  -u main // este comando lo que hace es que al subir por primera vez, destinas a main '-u' como la carpeta raiz a la que se subiran, una vez que hayas ejecutado este comando ya no es necesario volver a usar el -u , se puede hacer tanto con git push o git push origin main 
 
 
+OJITO = A TENER EN CUENTA QUE PARA SUBIR SE DEBE HACER UN GIT ADD, LUEGO COMMIT ANTES DE PUSH, SI NO ESTE NO TE PERMITE SUBIR LOS CAMBIOS REALIZADOS
+
 
 ++ para ver en que repositorio se esta trabajando puedes hacer un git remote -v
 y este te estara mostrando la direccion en donde se esta trabajando. 
