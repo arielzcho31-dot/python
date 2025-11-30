@@ -1,0 +1,57 @@
+al crear archivos o proyectos nuevos se debe hacer ciertos pasos para poder  subir a git:
+    tener un repositorio creado en git, desde la terminal realizar o ejecutar estos comandos;
+1 - git status // para verificar el estado  de git
+2 - git add . // para añadir los archivos modificados, ten en cuenta que no se incluiran los archivos añadidos en .gitignore , se puede o subir toda la carpeta o tambien un archivo en especifico modificando el parametro en git add nombre_archivo.py 
+3 - git commit -m " comentario de cambio" // esto es para que cada que cambio que realizes se pueda diferenciar, por ejemplo, primer cambio , segundo cambio, o si alzaste / modificaste un archivo en especifico puedas saber que cambio se hizo o por quien
+4 -  git remote add origin <URL> // este comando es para asignar una ruta o repositorio se subiran los archivos/ cambios
+5 - git branch -M main // define a main como la carpeta principal o la raiz, anteriormente no se usaba main 
+6 - git push  -u main // este comando lo que hace es que al subir por primera vez, destinas a main '-u' como la carpeta raiz a la que se subiran, una vez que hayas ejecutado este comando ya no es necesario volver a usar el -u , se puede hacer tanto con git push o git push origin main 
+
+
+
+++ para ver en que repositorio se esta trabajando puedes hacer un git remote -v
+y este te estara mostrando la direccion en donde se esta trabajando. 
+Ejemplo:  git remote -v
+origin  https://github.com/arielzcho31-dot/python.git (fetch)
+origin  https://github.com/arielzcho31-dot/python.git (push) 
+-- Estos pasos son los necesarios para comenzar a subir los cambios en un repositorio
+-- ahora ls comandos para eliminar archivos o hacer un rollback en caso que quieras volver a una anterior version por a o b motivo
+
+Opción 1: Deshacer cambios locales (sin hacer commit)
+# Descarta todos los cambios locales
+git checkout -- .
+
+# O para un archivo específico
+git checkout -- nombre_archivo.py
+
+Opción 2: Deshacer commit local (antes de hacer push)
+# Deshace el último commit pero mantiene los cambios en staging
+git reset --soft HEAD~1
+
+# O descarta completamente el último commit y los cambios
+git reset --hard HEAD~1
+
+Opción 3: Revertir un commit ya subido (más seguro)
+# Crea un nuevo commit que deshace los cambios del commit problemático
+git revert <hash_del_commit>
+git push origin main
+
+Opción 4: Forzar volver a un commit anterior (cuidado)
+# Retrocede el repositorio a un commit específico
+git reset --hard <hash_del_commit>
+git push -f origin main  # ¡CUIDADO! Esto sobrescribe el historial remoto
+
+Para ver el historial de los commits 
+git log --oneline
+
+
+
+
+
+
+
+
+Recomendaciones importantes:
+Nunca uses git push -f a menos que estés seguro, ya que puede causar problemas a otros colaboradores.
+Usa git revert en lugar de reset --hard para cambios ya subidos al repositorio remoto.
+Haz un backup de tus cambios importantes antes de hacer operaciones destructivas.
